@@ -14,11 +14,7 @@ import scalatags.Text.all._
 
 object Service extends Http4sDsl[IO] {
 
-  val supportedStaticExtensions =
-    List(".html", ".js", ".map", ".css", ".png", ".ico")
-
   val endpoints = HttpService[IO] {
-
     case GET -> Root =>
       Ok(Page.template(Seq(), Seq(div(id:="js-app-hook")), Scripts.jsScripts, Seq()).render)
         .map(_.withContentType(`Content-Type`(`text/html`, Charset.`UTF-8`))
