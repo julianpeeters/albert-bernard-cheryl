@@ -1,8 +1,8 @@
-package kartograffel.shared.domain.model
+package com.julianpeeters.albertbernardcheryl.shared.domain.model
 
 import io.circe.testing.CodecTests
 import io.circe.testing.instances._
-import kartograffel.shared.model.ArbitraryInstances._
+import com.julianpeeters.albertbernardcheryl.shared.model.ArbitraryInstances._
 import org.scalatest.FunSuite
 import org.typelevel.discipline.scalatest.Discipline
 

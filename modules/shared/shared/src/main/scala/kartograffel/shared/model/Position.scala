@@ -1,4 +1,4 @@
-package kartograffel.shared.model
+package com.julianpeeters.albertbernardcheryl.shared.model
 
 import cats.Eq
 import eu.timepit.refined.W
@@ -7,7 +7,7 @@ import eu.timepit.refined.numeric.Interval
 import io.circe.generic.semiauto._
 import io.circe.{Decoder, Encoder}
 import io.circe.refined._
-import kartograffel.shared.model.Position.{Latitude, Longitude}
+import com.julianpeeters.albertbernardcheryl.shared.model.Position.{Latitude, Longitude}
 
 final case class Position(
     latitude: Latitude,

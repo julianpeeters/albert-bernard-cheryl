@@ -1,11 +1,11 @@
-package kartograffel.shared.model
+package com.julianpeeters.albertbernardcheryl.shared.model
 
 import eu.timepit.refined.api.Refined
 import eu.timepit.refined.collection.NonEmpty
 import eu.timepit.refined.scalacheck.any.arbitraryFromValidate
 import eu.timepit.refined.scalacheck.numeric._
 import eu.timepit.refined.types.string.NonEmptyString
-import kartograffel.shared.domain.model.{User, Username}
+import com.julianpeeters.albertbernardcheryl.shared.domain.model.{User, Username}
 import org.scalacheck.Arbitrary
 import org.scalacheck.ScalacheckShapeless._
 import org.scalacheck.derive.MkArbitrary

@@ -2,15 +2,15 @@ import sbtcrossproject.{crossProject, CrossProject}
 
 /// variables
 
-val projectName = "kartograffel"
-val rootPkg = "kartograffel"
+val projectName = "albertbernardcheryl"
+val rootPkg = "com.julianpeeters.albertbernardcheryl"
 
 val circeVersion = "0.9.0-M2"
 val doobieVersion = "0.5.0-M9"
 val flywayVersion = "5.0.6"
-val fs2Version = "0.10.0-M8"
+val fs2Version = "0.10.0-M11"
 val h2Version = "1.4.196"
-val http4sVersion = "0.18.0-M5"
+val http4sVersion = "0.18.0-M7"
 val logbackVersion = "1.2.3"
 val refinedVersion = "0.8.6"
 val scalacheckShapelessVersion = "1.1.6"
@@ -39,8 +39,6 @@ lazy val client = crossProject(JSPlatform)
   .jsConfigure(_.dependsOn(sharedJS))
   .enablePlugins(ScalaJSWeb)
   .settings(
-    // Disabling coverage because of:
-    // https://github.com/fthomas/kartograffel/pull/5
     coverageEnabled := false,
     libraryDependencies ++= Seq(
       "be.doeraene" %%% "scalajs-jquery" % scalajsJqueryVersion,
@@ -80,6 +78,7 @@ lazy val server = crossProject(JVMPlatform)
     libraryDependencies ++= Seq(
       "ch.qos.logback" % "logback-classic" % logbackVersion,
       "com.h2database" % "h2" % h2Version,
+      "com.lihaoyi" %%% "scalatags" % scalajsScalaTagsVersion,
       "eu.timepit" %% "refined" % refinedVersion,
       "eu.timepit" %% "refined-pureconfig" % refinedVersion,
       "org.flywaydb" % "flyway-core" % flywayVersion,
@@ -297,11 +296,4 @@ addCommandsAlias("validate",
                    "package",
                    "packageSrc",
                    "debian:packageBin"
-                 ))
-
-addCommandsAlias("deployHerokuCmds",
-                 Seq(
-                   "clean",
-                   "serverJVM/stage",
-                   "serverJVM/deployHeroku"
                  ))

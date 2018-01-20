@@ -1,4 +1,4 @@
-package kartograffel.shared.domain.model
+package com.julianpeeters.albertbernardcheryl.shared.domain.model
 
 import cats.Eq
 import cats.implicits._

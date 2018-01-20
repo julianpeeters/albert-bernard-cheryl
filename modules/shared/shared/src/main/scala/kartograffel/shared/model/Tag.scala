@@ -1,4 +1,4 @@
-package kartograffel.shared.model
+package com.julianpeeters.albertbernardcheryl.shared.model
 
 import cats.Eq
 import io.circe.{Decoder, Encoder}
