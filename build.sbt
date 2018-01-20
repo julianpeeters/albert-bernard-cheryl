@@ -44,7 +44,6 @@ lazy val client = crossProject(JSPlatform)
       "be.doeraene" %%% "scalajs-jquery" % scalajsJqueryVersion,
       "co.fs2" %%% "fs2-core" % fs2Version,
       "com.github.japgolly.scalajs-react" %%% "core" % scalajsReactVersion,
-      "com.lihaoyi" %%% "scalatags" % scalajsScalaTagsVersion,
       "org.scala-js" %%% "scalajs-dom" % scalajsDomVersion,
       /// test dependencies
       // Replace with specs2 when it supports Scala.js:
@@ -78,7 +77,6 @@ lazy val server = crossProject(JVMPlatform)
     libraryDependencies ++= Seq(
       "ch.qos.logback" % "logback-classic" % logbackVersion,
       "com.h2database" % "h2" % h2Version,
-      "com.lihaoyi" %%% "scalatags" % scalajsScalaTagsVersion,
       "eu.timepit" %% "refined" % refinedVersion,
       "eu.timepit" %% "refined-pureconfig" % refinedVersion,
       "org.flywaydb" % "flyway-core" % flywayVersion,
@@ -152,6 +150,7 @@ lazy val shared = crossProject(JSPlatform, JVMPlatform)
   .configureCross(moduleCrossConfig("shared"))
   .settings(
     libraryDependencies ++= Seq(
+      "com.lihaoyi" %%% "scalatags" % scalajsScalaTagsVersion,
       "eu.timepit" %%% "refined" % refinedVersion,
       "io.circe" %%% "circe-generic" % circeVersion,
       "io.circe" %%% "circe-refined" % circeVersion,
