@@ -2,45 +2,49 @@ package com.julianpeeters.albertbernardcheryl
 package components
 
 import com.julianpeeters.albertbernardcheryl.components.navbar.NavComponent
+import com.julianpeeters.albertbernardcheryl.components.modules.homepage.HomeComponent
+import com.julianpeeters.albertbernardcheryl.components.modules.puzzlepage.PuzzleComponent
+import com.julianpeeters.albertbernardcheryl.models._
 
 import japgolly.scalajs.react._
-import japgolly.scalajs.react.extra.router._
 import japgolly.scalajs.react.vdom.html_<^._
-// import scala.concurrent.Future
-// import scala.concurrent.ExecutionContext.Implicits.global
+import scala.concurrent.Future
+import scala.concurrent.ExecutionContext.Implicits.global
 
 object AppComponent {
   
-  case class State(puzzles: List[String], currentPuzzle: String)
-  object State {
-    val initial = State(List.empty, "initial")
-  }
-  
-  case class Props(
-    p: List[String],
-    c: RouterCtl[AppPage],
-    r: Resolution[AppPage])
+  case class State(
+    appPage: AppPage,
+    puzzles: List[String],
+    currentPuzzle: String)
 
-  class Backend(scope: BackendScope[Props, State]) {
-    // def mounted: Callback =
-    //   Callback.future(Future(List("puzzle from server"))
-    //     .map(retrieved => scope.modState(_.copy(puzzles = retrieved))))//getUserResponse >>= dispatchUserInfo >>= loadAndDispatchCitiesWeather
-    def render(P: Props): VdomElement = {
+  object State {
+    val initial = State(HomePage, List.empty, "blank board/choose a puzzle")
+  }
+
+  class Backend(scope: BackendScope[Unit, State]) {
+    def init: Callback =
+      Callback.future(Future(List("puzzle from server1", "puzzle from server2"))
+        .map(retrieved => scope.modState(_.copy(puzzles = retrieved))))//getUserResponse >>= dispatchUserInfo >>= loadAndDispatchCitiesWeather
+    def render(S: State): VdomElement = {
       <.div(
         // navbar
         NavComponent.navMenu(NavComponent.Props(
           navMenuItems = List(
-            NavComponent.NavMenuItem("Home " + scope, HomePage),
+            NavComponent.NavMenuItem("Home ", HomePage),
             NavComponent.NavMenuItem("Puzzle", PuzzlePage)
-          ), selectedPage = P.r.page, ctrl = P.c)),
-        // currently active module is shown in this container
-        <.div(^.cls := "container", P.r.render()))
+          ), selectedPage = S.appPage, scope)),
+        // active module is shown in this container
+        <.div(^.cls := "container", S.appPage match {
+          case HomePage => HomeComponent.component(HomeComponent.Props(scope, S))
+          case PuzzlePage => PuzzleComponent.component(S.currentPuzzle)
+        }))
     }
   }
 
-  val component = ScalaComponent.builder[Props]("AppComponent")
+  val component = ScalaComponent.builder[Unit]("AppComponent")
     .initialState(State.initial)
     .renderBackend[Backend]
-  //  .componentDidMount(scope => scope.backend.mounted)
+    .componentDidMount(scope => scope.backend.init)
     .build
 }
