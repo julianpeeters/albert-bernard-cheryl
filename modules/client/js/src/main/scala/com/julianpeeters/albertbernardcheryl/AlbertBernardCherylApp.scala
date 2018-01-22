@@ -1,14 +1,20 @@
 package com.julianpeeters.albertbernardcheryl
 
-import com.julianpeeters.albertbernardcheryl.components.AppComponent
-
 import org.scalajs.dom
+import scala.concurrent.Future
+import scala.concurrent.ExecutionContext.Implicits.global
 
 object AlbertBernardCherylApp {
   
   def main(args: Array[String]): Unit = {
-    val page = AppComponent.Hello("world!")
-    val _ = page.renderIntoDOM(dom.window.document.getElementById("js-app-hook"))
+
+    val _ = for {
+      puzzles   <- Future(List("from server1", "from server2"))
+      container <- Future(dom.window.document.getElementById("js-app-hook"))
+      jsApp = AppRouter.router(puzzles)
+      _     = jsApp().renderIntoDOM(container)
+    } yield ()
+    
   }
   
 }

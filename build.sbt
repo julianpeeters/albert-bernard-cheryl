@@ -44,6 +44,7 @@ lazy val client = crossProject(JSPlatform)
       "be.doeraene" %%% "scalajs-jquery" % scalajsJqueryVersion,
       "co.fs2" %%% "fs2-core" % fs2Version,
       "com.github.japgolly.scalajs-react" %%% "core" % scalajsReactVersion,
+      "com.github.japgolly.scalajs-react" %%% "extra" % scalajsReactVersion,
       "org.scala-js" %%% "scalajs-dom" % scalajsDomVersion,
       /// test dependencies
       // Replace with specs2 when it supports Scala.js:
