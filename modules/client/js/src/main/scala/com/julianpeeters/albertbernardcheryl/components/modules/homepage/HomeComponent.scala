@@ -20,7 +20,7 @@ object HomeComponent {
       .render_P(P =>
         <.div(
           <.ul(
-            ^.cls := "navbar-header",
+            ^.cls := "homepage",
             P.state.puzzles.toTagMod(puzzle =>
               <.li(
                 ^.onClick -->
