@@ -3,7 +3,7 @@ package components
 
 import com.julianpeeters.albertbernardcheryl.components.navbar.NavComponent
 import com.julianpeeters.albertbernardcheryl.components.modules.homepage.HomeComponent
-import com.julianpeeters.albertbernardcheryl.components.modules.puzzlepage.PuzzleComponent
+import com.julianpeeters.albertbernardcheryl.components.modules.itempage.ItemComponent
 import com.julianpeeters.albertbernardcheryl.models._
 
 import japgolly.scalajs.react._
@@ -15,29 +15,29 @@ object AppComponent {
   
   case class State(
     appPage: AppPage,
-    puzzles: List[String],
-    currentPuzzle: String)
+    items: List[String],
+    currentItem: String)
 
   object State {
-    val initial = State(HomePage, List.empty, "blank board/choose a puzzle")
+    val initial = State(HomePage, List.empty, "blank board/choose a item")
   }
 
   class Backend(scope: BackendScope[Unit, State]) {
     def init: Callback =
-      Callback.future(Future(List("puzzle from server1", "puzzle from server2"))
-        .map(retrieved => scope.modState(_.copy(puzzles = retrieved))))//getUserResponse >>= dispatchUserInfo >>= loadAndDispatchCitiesWeather
+      Callback.future(Future(List("item from server1", "item from server2"))
+        .map(retrieved => scope.modState(_.copy(items = retrieved))))//getUserResponse >>= dispatchUserInfo >>= loadAndDispatchCitiesWeather
     def render(S: State): VdomElement = {
       <.div(
         // navbar
         NavComponent.navMenu(NavComponent.Props(
           navMenuItems = List(
             NavComponent.NavMenuItem("Home ", HomePage),
-            NavComponent.NavMenuItem("Puzzle", PuzzlePage)
+            NavComponent.NavMenuItem("Item", ItemPage)
           ), selectedPage = S.appPage, scope)),
         // active module is shown in this container
         <.div(^.cls := "container", S.appPage match {
           case HomePage => HomeComponent.component(HomeComponent.Props(scope, S))
-          case PuzzlePage => PuzzleComponent.component(S.currentPuzzle)
+          case ItemPage => ItemComponent.component(S.currentItem)
         }))
     }
   }
