@@ -174,36 +174,9 @@ def moduleCrossConfig(name: String): CrossProject => CrossProject =
     .settings(commonSettings)
 
 lazy val commonSettings = Def.settings(
-  compileSettings,
   consoleSettings,
   metadataSettings,
   packageSettings
-)
-
-lazy val compileSettings = Def.settings(
-  scalacOptions ++= Seq(
-    "-deprecation",
-    "-encoding",
-    "UTF-8",
-    "-feature",
-    "-language:existentials",
-    "-language:experimental.macros",
-    "-language:higherKinds",
-    "-language:implicitConversions",
-    "-unchecked",
-    "-Xfatal-warnings",
-    "-Xfuture",
-    "-Xlint:-unused,_",
-    "-Yno-adapted-args",
-    "-Ywarn-unused:implicits",
-    "-Ywarn-unused:imports",
-    "-Ywarn-unused:locals",
-    "-Ywarn-unused:params",
-    "-Ywarn-unused:patvars",
-    "-Ywarn-unused:privates",
-    "-Ywarn-numeric-widen",
-    "-Ywarn-value-discard"
-  )
 )
 
 lazy val consoleSettings = Def.settings(
