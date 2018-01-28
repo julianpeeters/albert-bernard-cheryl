@@ -1,4 +1,4 @@
-package com.julianpeeters.albertbernardcheryl.shared.domain.model
+package com.julianpeeters.example.shared.domain.model
 
 import cats.Eq
 import cats.implicits._

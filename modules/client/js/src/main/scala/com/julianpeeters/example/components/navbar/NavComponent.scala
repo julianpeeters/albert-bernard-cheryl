@@ -1,8 +1,8 @@
-package com.julianpeeters.albertbernardcheryl
+package com.julianpeeters.example
 package components
 package navbar
 
-import com.julianpeeters.albertbernardcheryl.models.AppPage
+import com.julianpeeters.example.models.AppPage
 
 import japgolly.scalajs.react._
 import japgolly.scalajs.react.extra._

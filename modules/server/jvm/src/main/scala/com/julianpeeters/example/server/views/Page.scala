@@ -1,4 +1,4 @@
-package com.julianpeeters.albertbernardcheryl.server
+package com.julianpeeters.example.server
 package views
 
 import scalatags.Text.TypedTag

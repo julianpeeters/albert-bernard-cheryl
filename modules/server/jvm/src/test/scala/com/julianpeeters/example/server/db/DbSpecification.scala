@@ -1,4 +1,4 @@
-package com.julianpeeters.albertbernardcheryl.server.db
+package com.julianpeeters.example.server.db
 
 import cats.effect.IO
 import cats.implicits._
@@ -7,8 +7,8 @@ import doobie.implicits._
 import doobie.specs2.analysisspec.IOChecker
 import eu.timepit.refined.auto._
 import eu.timepit.refined.types.string.NonEmptyString
-import com.julianpeeters.albertbernardcheryl.server.infrastructure.doobie.DoobieMigration
-import com.julianpeeters.albertbernardcheryl.server.{BuildInfo, Config}
+import com.julianpeeters.example.server.infrastructure.doobie.DoobieMigration
+import com.julianpeeters.example.server.{BuildInfo, Config}
 import org.specs2.mutable.Specification
 
 trait DbSpecification extends Specification with IOChecker {
@@ -24,7 +24,7 @@ trait DbSpecification extends Specification with IOChecker {
 
 object DbSpecification {
   val dbConfig: Config.Db = {
-    val path = s"${BuildInfo.crossTarget.toString}/h2/com/julianpeeters/albertbernardcheryl"
+    val path = s"${BuildInfo.crossTarget.toString}/h2/com/julianpeeters/example"
     val url = NonEmptyString.unsafeFrom(
       s"jdbc:h2:$path;MODE=PostgreSQL;AUTO_SERVER=TRUE")
 

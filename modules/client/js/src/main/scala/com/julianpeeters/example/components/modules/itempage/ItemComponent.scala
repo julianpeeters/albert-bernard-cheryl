@@ -1,4 +1,4 @@
-package com.julianpeeters.albertbernardcheryl
+package com.julianpeeters.example
 package components
 package modules
 package itempage

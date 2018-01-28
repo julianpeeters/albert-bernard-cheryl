@@ -1,4 +1,21 @@
-# kartograffel
-[![Build Status](https://travis-ci.org/fthomas/kartograffel.svg?branch=master)](https://travis-ci.org/fthomas/kartograffel)
-[![codecov](https://codecov.io/gh/fthomas/kartograffel/branch/master/graph/badge.svg)](https://codecov.io/gh/fthomas/kartograffel)
-[![Codacy Badge](https://api.codacy.com/project/badge/Grade/fc884586cbff4519b920c0d56144b0f1)](https://www.codacy.com/app/fthomas/kartograffel?utm_source=github.com&utm_medium=referral&utm_content=fthomas/kartograffel&utm_campaign=badger)
+# Example Web App
+
+#### To Run Locally:
+
+From the sbt console, enter the following commands:
+```
+project ServerJVM
+~reStart
+```
+
+Then visit `http://localhost:8080/`.
+
+#### application.conf
+Please use port 8080 for local dev, "PORT" for heroku
+
+
+#### Credits
+Adapted from
+* Chris Davenport's [Http4s ScalaJS Example](https://github.com/davenport-scala/http4s-scalajsexample)
+* Frank Thomas' [Kartograffel](https://github.com/fthomas/kartograffel).
+

@@ -1,6 +1,6 @@
-package com.julianpeeters.albertbernardcheryl
+package com.julianpeeters.example
 
-import com.julianpeeters.albertbernardcheryl.components.AppComponent
+import com.julianpeeters.example.components.AppComponent
 
 import cats.effect.IO
 import org.scalajs.dom

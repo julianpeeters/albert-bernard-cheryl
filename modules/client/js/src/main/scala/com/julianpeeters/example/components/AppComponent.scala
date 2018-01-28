@@ -1,10 +1,10 @@
-package com.julianpeeters.albertbernardcheryl
+package com.julianpeeters.example
 package components
 
-import com.julianpeeters.albertbernardcheryl.components.navbar.NavComponent
-import com.julianpeeters.albertbernardcheryl.components.modules.homepage.HomeComponent
-import com.julianpeeters.albertbernardcheryl.components.modules.itempage.ItemComponent
-import com.julianpeeters.albertbernardcheryl.models._
+import com.julianpeeters.example.components.navbar.NavComponent
+import com.julianpeeters.example.components.modules.homepage.HomeComponent
+import com.julianpeeters.example.components.modules.itempage.ItemComponent
+import com.julianpeeters.example.models._
 
 import japgolly.scalajs.react._
 import japgolly.scalajs.react.vdom.html_<^._

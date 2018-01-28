@@ -1,9 +1,9 @@
-package com.julianpeeters.albertbernardcheryl
+package com.julianpeeters.example
 package components
 package modules
 package homepage
 
-import com.julianpeeters.albertbernardcheryl.models.ItemPage
+import com.julianpeeters.example.models.ItemPage
 
 import japgolly.scalajs.react._
 import japgolly.scalajs.react.vdom.html_<^._

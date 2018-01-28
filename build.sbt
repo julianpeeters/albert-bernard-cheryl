@@ -2,9 +2,11 @@ import sbtcrossproject.{crossProject, CrossProject}
 
 /// variables
 
-val projectName = "albertbernardcheryl"
-val rootPkg = "com.julianpeeters.albertbernardcheryl"
+val projectName = "example"
+val rootPkg = "com.julianpeeters.example"
 
+val catsEffectVersion = "0.8"
+val catsVersion = "1.0.1"
 val circeVersion = "0.9.0-M2"
 val doobieVersion = "0.5.0-M9"
 val flywayVersion = "5.0.6"
@@ -42,7 +44,6 @@ lazy val client = crossProject(JSPlatform)
     coverageEnabled := false,
     libraryDependencies ++= Seq(
       "be.doeraene" %%% "scalajs-jquery" % scalajsJqueryVersion,
-      "co.fs2" %%% "fs2-core" % fs2Version,
       "com.github.japgolly.scalajs-react" %%% "core" % scalajsReactVersion,
       "com.github.japgolly.scalajs-react" %%% "extra" % scalajsReactVersion,
       "org.scala-js" %%% "scalajs-dom" % scalajsDomVersion,
@@ -80,14 +81,15 @@ lazy val server = crossProject(JVMPlatform)
       "com.h2database" % "h2" % h2Version,
       "eu.timepit" %% "refined" % refinedVersion,
       "eu.timepit" %% "refined-pureconfig" % refinedVersion,
-      "org.flywaydb" % "flyway-core" % flywayVersion,
       "org.http4s" %% "http4s-blaze-server" % http4sVersion,
       "org.http4s" %% "http4s-circe" % http4sVersion,
       "org.http4s" %% "http4s-core" % http4sVersion,
       "org.http4s" %% "http4s-dsl" % http4sVersion,
+      "org.flywaydb" % "flyway-core" % flywayVersion,
       "org.tpolecat" %% "doobie-core" % doobieVersion,
       "org.tpolecat" %% "doobie-hikari" % doobieVersion,
       "org.tpolecat" %% "doobie-refined" % doobieVersion,
+      "org.tpolecat" %% "doobie-postgres" % doobieVersion,
       /// test dependencies
       "org.http4s" %% "http4s-testing" % http4sVersion % Test,
       "org.specs2" %% "specs2-core" % specs2Version % Test,
@@ -151,15 +153,18 @@ lazy val shared = crossProject(JSPlatform, JVMPlatform)
   .configureCross(moduleCrossConfig("shared"))
   .settings(
     libraryDependencies ++= Seq(
-      "com.lihaoyi" %%% "scalatags" % scalajsScalaTagsVersion,
-      "eu.timepit" %%% "refined" % refinedVersion,
-      "io.circe" %%% "circe-generic" % circeVersion,
-      "io.circe" %%% "circe-refined" % circeVersion,
-      "io.circe" %%% "circe-parser" % circeVersion,
+      "co.fs2"        %%% "fs2-core"      % fs2Version,
+      "com.lihaoyi"   %%% "scalatags"     % scalajsScalaTagsVersion,
+      "eu.timepit"    %%% "refined"       % refinedVersion,
+      "io.circe"      %%% "circe-generic" % circeVersion,
+      "io.circe"      %%% "circe-refined" % circeVersion,
+      "io.circe"      %%% "circe-parser"  % circeVersion,
+      "org.typelevel" %%% "cats-core"     % catsVersion,
+      "org.typelevel" %%% "cats-effect"   % catsEffectVersion,
       /// test dependencies
       "com.github.alexarchambault" %%% "scalacheck-shapeless_1.13" % scalacheckShapelessVersion % Test,
-      "eu.timepit" %%% "refined-scalacheck" % refinedVersion % Test,
-      "io.circe" %%% "circe-testing" % circeVersion % Test,
+      "eu.timepit"    %%% "refined-scalacheck" % refinedVersion % Test,
+      "io.circe"      %%% "circe-testing" % circeVersion % Test,
       "org.scalatest" %%% "scalatest" % scalaTestVersion % Test
     )
   )
