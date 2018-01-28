@@ -14,7 +14,6 @@ object FlywayMigration {
       val flyway = new Flyway
       flyway.setDataSource(config.url, config.user, config.password)
       flyway.setLocations("classpath:db/migration")
-      // flyway.clean() // DANGER: do not use on initialized production db
       flyway.migrate()
     }.void)
     
