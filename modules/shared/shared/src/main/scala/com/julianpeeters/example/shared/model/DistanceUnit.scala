@@ -1,4 +1,4 @@
-package com.julianpeeters.albertbernardcheryl.shared.model
+package com.julianpeeters.example.shared.model
 
 sealed trait DistanceUnit
 final case object meter extends DistanceUnit

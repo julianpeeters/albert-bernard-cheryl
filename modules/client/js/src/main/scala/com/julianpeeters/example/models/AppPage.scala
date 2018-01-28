@@ -1,4 +1,4 @@
-package com.julianpeeters.albertbernardcheryl
+package com.julianpeeters.example
 package models
 
 sealed trait AppPage

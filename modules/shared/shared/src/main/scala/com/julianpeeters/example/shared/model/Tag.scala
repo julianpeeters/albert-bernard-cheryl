@@ -1,4 +1,4 @@
-package com.julianpeeters.albertbernardcheryl.shared.model
+package com.julianpeeters.example.shared.model
 
 import cats.Eq
 import io.circe.{Decoder, Encoder}

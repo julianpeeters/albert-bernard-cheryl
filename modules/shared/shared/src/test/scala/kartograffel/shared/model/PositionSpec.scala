@@ -1,8 +1,8 @@
-package com.julianpeeters.albertbernardcheryl.shared.model
+package com.julianpeeters.example.shared.model
 
 import io.circe.testing.CodecTests
 import io.circe.testing.instances._
-import com.julianpeeters.albertbernardcheryl.shared.model.ArbitraryInstances._
+import com.julianpeeters.example.shared.model.ArbitraryInstances._
 import org.scalatest.FunSuite
 import org.typelevel.discipline.scalatest.Discipline
 

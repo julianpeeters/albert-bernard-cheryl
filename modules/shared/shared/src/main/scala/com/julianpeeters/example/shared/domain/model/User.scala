@@ -1,3 +1,3 @@
-package com.julianpeeters.albertbernardcheryl.shared.domain.model
+package com.julianpeeters.example.shared.domain.model
 
 final case class User(name: Username)

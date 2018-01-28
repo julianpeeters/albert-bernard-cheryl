@@ -1,8 +1,8 @@
-package com.julianpeeters.albertbernardcheryl.server.infrastructure.doobie.repository
+package com.julianpeeters.example.server.infrastructure.doobie.repository
 
 import eu.timepit.refined.auto._
-import com.julianpeeters.albertbernardcheryl.server.db.DbSpecification
-import com.julianpeeters.albertbernardcheryl.shared.domain.model.{User, Username}
+import com.julianpeeters.example.server.db.DbSpecification
+import com.julianpeeters.example.shared.domain.model.{User, Username}
 
 class DbUserRepositoryTest extends DbSpecification {
   "create" >> {

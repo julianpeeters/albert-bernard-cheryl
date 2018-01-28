@@ -2,8 +2,8 @@ import sbtcrossproject.{crossProject, CrossProject}
 
 /// variables
 
-val projectName = "albertbernardcheryl"
-val rootPkg = "com.julianpeeters.albertbernardcheryl"
+val projectName = "example"
+val rootPkg = "com.julianpeeters.example"
 
 val circeVersion = "0.9.0-M2"
 val doobieVersion = "0.5.0-M9"
@@ -87,6 +87,7 @@ lazy val server = crossProject(JVMPlatform)
       "org.http4s" %% "http4s-dsl" % http4sVersion,
       "org.tpolecat" %% "doobie-core" % doobieVersion,
       "org.tpolecat" %% "doobie-hikari" % doobieVersion,
+      "org.tpolecat" %% "doobie-postgres" % doobieVersion,
       "org.tpolecat" %% "doobie-refined" % doobieVersion,
       /// test dependencies
       "org.http4s" %% "http4s-testing" % http4sVersion % Test,
@@ -127,10 +128,6 @@ lazy val server = crossProject(JVMPlatform)
       )
     },
     buildInfoPackage := modulePkg.value
-  )
-  // sbt-heroku settings
-  .settings(
-    herokuAppName in Compile := name.value
   )
   // sbt-native-packager settings
   .settings(

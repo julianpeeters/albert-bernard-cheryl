@@ -1,4 +1,4 @@
-package kartograffel
+package com.julianpeeters.example
 
 import org.scalatest.FunSuite
 
