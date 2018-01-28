@@ -39,7 +39,6 @@ lazy val client = crossProject(JSPlatform)
   .jsConfigure(_.dependsOn(sharedJS))
   .enablePlugins(ScalaJSWeb)
   .settings(
-    coverageEnabled := false,
     libraryDependencies ++= Seq(
       "be.doeraene" %%% "scalajs-jquery" % scalajsJqueryVersion,
       "co.fs2" %%% "fs2-core" % fs2Version,
@@ -285,10 +284,7 @@ addCommandsAlias("validate",
                  Seq(
                    "clean",
                    "scalafmtTest",
-                   "coverageOn",
                    "test",
-                   "coverageReport",
-                   "coverageOff",
                    "doc",
                    "package",
                    "packageSrc",
