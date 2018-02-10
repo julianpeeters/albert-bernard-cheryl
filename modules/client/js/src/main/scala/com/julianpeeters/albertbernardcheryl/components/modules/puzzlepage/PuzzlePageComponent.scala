@@ -1,17 +1,17 @@
 package com.julianpeeters.albertbernardcheryl
 package components
 package modules
-package itempage
+package puzzlepage
 
 import japgolly.scalajs.react._
 import japgolly.scalajs.react.vdom.html_<^._
 
-object ItemComponent {
+object PuzzlePageComponent {
   val component =
-    ScalaComponent.builder[String]("Item")
+    ScalaComponent.builder[String]("PuzzlePage")
       .render_P(name =>
         <.div(
-          ^.cls := "itempage",
+          ^.cls := "puzzlepage",
           name))
       .build
 

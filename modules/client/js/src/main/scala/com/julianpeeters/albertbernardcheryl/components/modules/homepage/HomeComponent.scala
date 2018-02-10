@@ -3,7 +3,7 @@ package components
 package modules
 package homepage
 
-import com.julianpeeters.albertbernardcheryl.models.ItemPage
+import com.julianpeeters.albertbernardcheryl.models.PuzzlePage
 
 import japgolly.scalajs.react._
 import japgolly.scalajs.react.vdom.html_<^._
@@ -21,13 +21,15 @@ object HomeComponent {
         <.div(
           <.ul(
             ^.cls := "homepage",
-            P.state.items.toTagMod(item =>
+            // list puzzles, load and go to puzzle page when a puzzle is clicked
+            P.state.puzzles.toTagMod(puzzle => {
               <.li(
                 ^.onClick -->
                   P.scope.modState(_.copy(
-                    appPage = ItemPage,
-                    currentItem = item)),
-                item)))
+                    appPage = PuzzlePage,
+                    currentPuzzle = puzzle)),
+                puzzle)
+            }))
         ))
       .build
 
