@@ -2,8 +2,8 @@ import sbtcrossproject.{crossProject, CrossProject}
 
 /// variables
 
-val projectName = "example"
-val rootPkg = "com.julianpeeters.example"
+val projectName = "albertbernardcheryl"
+val rootPkg = "com.julianpeeters.albertbernardcheryl"
 
 val circeVersion = "0.9.0-M2"
 val doobieVersion = "0.5.0-M9"
@@ -198,7 +198,7 @@ lazy val metadataSettings = Def.settings(
 )
 
 lazy val packageSettings = Def.settings(
-  maintainer := s"$projectName author(s) <$projectName@example.org>"
+  maintainer := s"$projectName author(s) <$projectName@albertbernardcheryl.org>"
 )
 
 lazy val noPublishSettings = Def.settings(
