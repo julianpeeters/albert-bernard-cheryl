@@ -5,6 +5,7 @@ import com.julianpeeters.albertbernardcheryl.components.navbar.NavComponent
 import com.julianpeeters.albertbernardcheryl.components.modules.homepage.HomeComponent
 import com.julianpeeters.albertbernardcheryl.components.modules.puzzlepage.PuzzlePageComponent
 import com.julianpeeters.albertbernardcheryl.models._
+import com.julianpeeters.albertbernardcheryl.puzzles._
 
 import japgolly.scalajs.react._
 import japgolly.scalajs.react.vdom.html_<^._
@@ -15,16 +16,16 @@ object AppComponent {
   
   case class State(
     appPage: AppPage,
-    puzzles: List[String],
-    currentPuzzle: String)
+    puzzles: List[Puzzle],
+    currentPuzzle: Puzzle)
 
   object State {
-    val initial = State(HomePage, List.empty, "blank board/choose a puzzle")
+    val initial = State(HomePage, List.empty, DefaultPuzzle.puzzle)
   }
 
   class Backend(scope: BackendScope[Unit, State]) {
     def init: Callback =
-      Callback.future(Future(List("puzzle1 from server", "puzzle2 from server"))
+      Callback.future(Future(List(DefaultPuzzle.puzzle, DefaultPuzzle.puzzle))
         .map(retrieved => scope.modState(_.copy(puzzles = retrieved))))//getUserResponse >>= dispatchUserInfo >>= loadAndDispatchCitiesWeather
     def render(S: State): VdomElement = {
       <.div(
@@ -37,7 +38,7 @@ object AppComponent {
         // active module is shown in this container
         <.div(^.cls := "container", S.appPage match {
           case HomePage => HomeComponent.component(HomeComponent.Props(scope, S))
-          case PuzzlePage => PuzzlePageComponent.component(S.currentPuzzle)
+          case PuzzlePage => PuzzlePageComponent.component(PuzzlePageComponent.Props(S.currentPuzzle))
         }))
     }
   }

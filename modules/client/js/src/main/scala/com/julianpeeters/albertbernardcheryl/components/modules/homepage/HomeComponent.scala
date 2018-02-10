@@ -28,7 +28,7 @@ object HomeComponent {
                   P.scope.modState(_.copy(
                     appPage = PuzzlePage,
                     currentPuzzle = puzzle)),
-                puzzle)
+                puzzle.title.text)
             }))
         ))
       .build

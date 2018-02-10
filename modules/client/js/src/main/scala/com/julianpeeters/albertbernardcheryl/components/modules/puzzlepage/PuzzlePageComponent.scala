@@ -3,16 +3,23 @@ package components
 package modules
 package puzzlepage
 
+import com.julianpeeters.albertbernardcheryl.models.Puzzle
+
 import japgolly.scalajs.react._
 import japgolly.scalajs.react.vdom.html_<^._
 
 object PuzzlePageComponent {
+  
+  case class Props(
+    puzzle: Puzzle
+  )
+  
   val component =
-    ScalaComponent.builder[String]("PuzzlePage")
-      .render_P(name =>
+    ScalaComponent.builder[Props]("PuzzlePage")
+      .render_P(P =>
         <.div(
           ^.cls := "puzzlepage",
-          name))
+          P.puzzle.title.text))
       .build
 
 }
